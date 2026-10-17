@@ -1,0 +1,56 @@
+{
+  "seed": 42,
+  "image_size": 32,
+  "epochs": 24,
+  "batch_size": 256,
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dataset_root": "D:\\Download\\data",
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "source_hashes": {
+    "Train.csv": "5ab7d02a9362fcca13f227508f6e6ca1d1463a0e0c4b08b085f48d18cf068034",
+    "Test.csv": "a2c84fc6487ff24c4a2cf75aef1fc3405bb835b174ecdda549f0580b8e283f03",
+    "signnames.csv": "9338a797ff8a8d9692f1600a7eb28a38f418198200fda669a57da36960eaf51c"
+  },
+  "code_hashes": {
+    "traffic.py": "b8b62e3ad989ba0bf624aebc8f95e95c09387c5925756a46adaf824a591b551f",
+    "run_experiment.py": "b6972b9786588634113185703d964d5a9e1b2cbe28acaaab826910c0412ed8b7"
+  },
+  "libraries": {
+    "numpy": "2.2.6",
+    "scikit-learn": "1.7.2",
+    "scikit-image": "0.25.2",
+    "Pillow": "11.3.0",
+    "torch": "2.8.0+cu128"
+  },
+  "corruptions": {
+    "blur": [
+      0.6,
+      1.2,
+      1.8
+    ],
+    "darkness": [
+      0.65,
+      0.4,
+      0.2
+    ],
+    "noise": [
+      0.04,
+      0.08,
+      0.12
+    ]
+  },
+  "training_images": 31380,
+  "validation_images": 7829,
+  "test_images": 12630,
+  "classes": 43,
+  "training_tracks": 1046,
+  "validation_tracks": 261,
+  "training_code_hashes": {
+    "traffic.py": "b8b62e3ad989ba0bf624aebc8f95e95c09387c5925756a46adaf824a591b551f",
+    "run_experiment.py": "67872992a9e25e33be820bc601112eaa306ba4950d8bd8d2bf62018d60c1c392"
+  },
+  "training_source_note": "The exact training sources are preserved in results/training-source. The final run_experiment.py adds checkpoint-runtime compatibility checks and automatic source snapshots after this run; model fitting and evaluation mathematics are unchanged. training_code_hashes identify the original executed sources; code_hashes identify the final reproducibility entry points."
+}

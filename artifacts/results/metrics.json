@@ -1,0 +1,272 @@
+[
+  {
+    "model": "hog_svm",
+    "corruption": "clean",
+    "severity": 0,
+    "n": 12630,
+    "accuracy": 0.7754552652414886,
+    "macro_f1": 0.7144151062008696,
+    "inference_seconds": 4.010323299999982
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "clean",
+    "severity": 0,
+    "n": 12630,
+    "accuracy": 0.9837688044338876,
+    "macro_f1": 0.9775408854946186,
+    "inference_seconds": 0.4915235999997094
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "clean",
+    "severity": 0,
+    "n": 12630,
+    "accuracy": 0.9733174980205859,
+    "macro_f1": 0.9586877986832133,
+    "inference_seconds": 0.48404349999964325
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "blur",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.759224069675376,
+    "macro_f1": 0.6969284386925974,
+    "inference_seconds": 4.000963499999671
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "blur",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9796516231195566,
+    "macro_f1": 0.969721743567423,
+    "inference_seconds": 0.4654407000007268
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "blur",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9719714964370546,
+    "macro_f1": 0.9566462167291184,
+    "inference_seconds": 0.4707527000000482
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "blur",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.5364212193190816,
+    "macro_f1": 0.46478120311786497,
+    "inference_seconds": 4.123966799999835
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "blur",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.9253365003958828,
+    "macro_f1": 0.8777330167960915,
+    "inference_seconds": 0.44346589999986463
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "blur",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.9568487727632621,
+    "macro_f1": 0.9381167631954301,
+    "inference_seconds": 0.4562537000001612
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "blur",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.3197149643705463,
+    "macro_f1": 0.24703036826700708,
+    "inference_seconds": 3.926672999999937
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "blur",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.7806017418844022,
+    "macro_f1": 0.6994468204243218,
+    "inference_seconds": 0.49070489999940037
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "blur",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.9155186064924782,
+    "macro_f1": 0.882984629087472,
+    "inference_seconds": 0.5005186999997022
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "darkness",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.7734758511480602,
+    "macro_f1": 0.7127409724691628,
+    "inference_seconds": 3.89955800000007
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "darkness",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9786223277909739,
+    "macro_f1": 0.9670223000861643,
+    "inference_seconds": 0.4753082999995968
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "darkness",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9694378463974663,
+    "macro_f1": 0.9513561497351746,
+    "inference_seconds": 0.47776380000050267
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "darkness",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.7678543151227236,
+    "macro_f1": 0.7083138983953939,
+    "inference_seconds": 3.9466535999999905
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "darkness",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.9589865399841647,
+    "macro_f1": 0.9416007226523604,
+    "inference_seconds": 0.5062271000006149
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "darkness",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.9649247822644498,
+    "macro_f1": 0.9462032001326782,
+    "inference_seconds": 0.4968659000005573
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "darkness",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.7380839271575613,
+    "macro_f1": 0.6795826335987619,
+    "inference_seconds": 3.9133331000002727
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "darkness",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.9046714172604909,
+    "macro_f1": 0.8784034137659447,
+    "inference_seconds": 0.48057890000018233
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "darkness",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.9509897070467141,
+    "macro_f1": 0.9289824085426905,
+    "inference_seconds": 0.46781929999997374
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "noise",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.5208234362628662,
+    "macro_f1": 0.4808583275890954,
+    "inference_seconds": 4.08777099999952
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "noise",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9340459224069675,
+    "macro_f1": 0.9101138948852514,
+    "inference_seconds": 0.47642699999960314
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "noise",
+    "severity": 1,
+    "n": 12630,
+    "accuracy": 0.9602533650039589,
+    "macro_f1": 0.9402163008059208,
+    "inference_seconds": 0.4607365000001664
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "noise",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.34338875692794935,
+    "macro_f1": 0.29905068492909126,
+    "inference_seconds": 4.010604400000375
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "noise",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.8091053048297704,
+    "macro_f1": 0.7815055080875651,
+    "inference_seconds": 0.5557912999993277
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "noise",
+    "severity": 2,
+    "n": 12630,
+    "accuracy": 0.9295328582739509,
+    "macro_f1": 0.9077879922710583,
+    "inference_seconds": 0.5085339999995995
+  },
+  {
+    "model": "hog_svm",
+    "corruption": "noise",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.2403008709422011,
+    "macro_f1": 0.18822404567036954,
+    "inference_seconds": 4.109070100000281
+  },
+  {
+    "model": "cnn_clean",
+    "corruption": "noise",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.6653206650831354,
+    "macro_f1": 0.6545827285736142,
+    "inference_seconds": 0.46881409999969037
+  },
+  {
+    "model": "cnn_augmented",
+    "corruption": "noise",
+    "severity": 3,
+    "n": 12630,
+    "accuracy": 0.8828978622327791,
+    "macro_f1": 0.8618993551131681,
+    "inference_seconds": 0.48034000000006927
+  }
+]
