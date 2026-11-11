@@ -1,0 +1,85 @@
+{
+  "models": {
+    "hog_svm": {
+      "clean_accuracy": 0.7754552652414886,
+      "clean_macro_f1": 0.7144151062008696,
+      "mean_corrupted_accuracy": 0.5554763789918185,
+      "mean_corrupted_macro_f1": 0.49750117474770494
+    },
+    "cnn_clean": {
+      "clean_accuracy": 0.9837688044338876,
+      "clean_macro_f1": 0.9775408854946186,
+      "mean_corrupted_accuracy": 0.8818157825283717,
+      "mean_corrupted_macro_f1": 0.8533477943154151
+    },
+    "cnn_augmented": {
+      "clean_accuracy": 0.9733174980205859,
+      "clean_macro_f1": 0.9586877986832133,
+      "mean_corrupted_accuracy": 0.9447083663235681,
+      "mean_corrupted_macro_f1": 0.9237992239569679
+    }
+  },
+  "paired_severe": [
+    {
+      "corruption": "blur",
+      "severity": 3,
+      "both_correct": 9700,
+      "aug_only_correct": 1863,
+      "clean_only_correct": 159,
+      "both_wrong": 908
+    },
+    {
+      "corruption": "darkness",
+      "severity": 3,
+      "both_correct": 11256,
+      "aug_only_correct": 755,
+      "clean_only_correct": 170,
+      "both_wrong": 449
+    },
+    {
+      "corruption": "noise",
+      "severity": 3,
+      "both_correct": 8175,
+      "aug_only_correct": 2976,
+      "clean_only_correct": 228,
+      "both_wrong": 1251
+    }
+  ],
+  "largest_confusions": [
+    {
+      "true": 7,
+      "predicted": 8,
+      "count": 31,
+      "true_name": "Speed limit (100km/h)",
+      "predicted_name": "Speed limit (120km/h)"
+    },
+    {
+      "true": 21,
+      "predicted": 11,
+      "count": 30,
+      "true_name": "Double curve",
+      "predicted_name": "Right-of-way at the next intersection"
+    },
+    {
+      "true": 11,
+      "predicted": 30,
+      "count": 24,
+      "true_name": "Right-of-way at the next intersection",
+      "predicted_name": "Beware of ice/snow"
+    },
+    {
+      "true": 27,
+      "predicted": 1,
+      "count": 20,
+      "true_name": "Pedestrians",
+      "predicted_name": "Speed limit (30km/h)"
+    },
+    {
+      "true": 41,
+      "predicted": 9,
+      "count": 14,
+      "true_name": "End of no passing",
+      "predicted_name": "No passing"
+    }
+  ]
+}

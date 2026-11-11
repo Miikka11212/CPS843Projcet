@@ -4,13 +4,21 @@ A complete CPS 843 project comparing HOG + a linear SVM, a clean-trained CNN, an
 
 ## Open the demo
 
-Double-click **`launch.bat`**, which opens **http://127.0.0.1:8430**. Double-click **`stop_demo.bat`** to stop the background server. Trained models and a 43-class gallery are included. The full dataset is not needed to use the demo.
+Trained models and a 43-class gallery are included. The demo loads the saved models for prediction and runs without training or the full dataset.
 
 Choose an example or upload a **cropped German traffic sign**, select blur, darkness, or noise, and compare predictions. This does classification, not sign detection in full street scenes. SVM scores are decision margins; CNN scores are uncalibrated softmax probabilities.
 
-On this computer, `runtime_path.txt` points to the isolated environment installed for the build. A project-local `.venv` takes priority. If neither exists, the launcher runs `setup.ps1`, requiring Python 3.12 and internet access.
+### macOS (Apple Silicon)
 
-## Set up on another machine
+Double-click **`launch.command`** in Finder to open the demo at **http://127.0.0.1:8430**. The launcher uses [uv](https://docs.astral.sh/uv/getting-started/installation/) to set up Python 3.12 and the dependencies in `.venv` on the first run. SignLab uses the CPU for inference on macOS.
+
+From Terminal, run `./launch.command` in the project folder to start and `./launch.command --stop` to stop. The server runs in the background and writes to `demo.log`.
+
+### Windows
+
+Double-click **`launch.bat`** to open the demo at **http://127.0.0.1:8430**. Double-click **`stop_demo.bat`** to stop the background server. The launcher checks `.venv` and the build machine's `runtime_path.txt` before running `setup.ps1`. Setup requires Python 3.12 and internet access.
+
+To set up manually on Windows:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File setup.ps1

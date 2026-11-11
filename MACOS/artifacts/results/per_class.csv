@@ -1,0 +1,130 @@
+model,class_id,label,n,accuracy
+hog_svm,0,Speed limit (20km/h),60,0.48333333333333334
+hog_svm,1,Speed limit (30km/h),720,0.6527777777777778
+hog_svm,2,Speed limit (50km/h),750,0.764
+hog_svm,3,Speed limit (60km/h),450,0.5933333333333334
+hog_svm,4,Speed limit (70km/h),660,0.8863636363636364
+hog_svm,5,Speed limit (80km/h),630,0.5746031746031746
+hog_svm,6,End of speed limit (80km/h),150,0.7266666666666667
+hog_svm,7,Speed limit (100km/h),450,0.72
+hog_svm,8,Speed limit (120km/h),450,0.6355555555555555
+hog_svm,9,No passing,480,0.8354166666666667
+hog_svm,10,No passing for vehicles over 3.5 metric tons,660,0.9378787878787879
+hog_svm,11,Right-of-way at the next intersection,420,0.7119047619047619
+hog_svm,12,Priority road,690,0.9739130434782609
+hog_svm,13,Yield,720,0.9944444444444445
+hog_svm,14,Stop,270,0.8037037037037037
+hog_svm,15,No vehicles,210,0.9047619047619048
+hog_svm,16,Vehicles over 3.5 metric tons prohibited,150,0.92
+hog_svm,17,No entry,360,0.9333333333333333
+hog_svm,18,General caution,390,0.6846153846153846
+hog_svm,19,Dangerous curve to the left,60,0.7833333333333333
+hog_svm,20,Dangerous curve to the right,90,0.7111111111111111
+hog_svm,21,Double curve,90,0.5222222222222223
+hog_svm,22,Bumpy road,120,0.625
+hog_svm,23,Slippery road,150,0.6266666666666667
+hog_svm,24,Road narrows on the right,90,0.5555555555555556
+hog_svm,25,Road work,480,0.7833333333333333
+hog_svm,26,Traffic signals,180,0.6055555555555555
+hog_svm,27,Pedestrians,60,0.26666666666666666
+hog_svm,28,Children crossing,150,0.5
+hog_svm,29,Bicycles crossing,90,0.5222222222222223
+hog_svm,30,Beware of ice/snow,150,0.16
+hog_svm,31,Wild animals crossing,270,0.9074074074074074
+hog_svm,32,End of all speed and passing limits,60,0.5333333333333333
+hog_svm,33,Turn right ahead,210,0.8761904761904762
+hog_svm,34,Turn left ahead,120,0.8833333333333333
+hog_svm,35,Ahead only,390,0.8846153846153846
+hog_svm,36,Go straight or right,120,0.8083333333333333
+hog_svm,37,Go straight or left,60,0.7
+hog_svm,38,Keep right,690,0.9173913043478261
+hog_svm,39,Keep left,90,0.9666666666666667
+hog_svm,40,Roundabout mandatory,90,0.6
+hog_svm,41,End of no passing,60,0.5166666666666667
+hog_svm,42,End of no passing by vehicles over 3.5 metric tons,90,0.6
+cnn_clean,0,Speed limit (20km/h),60,1.0
+cnn_clean,1,Speed limit (30km/h),720,0.9972222222222222
+cnn_clean,2,Speed limit (50km/h),750,0.9933333333333333
+cnn_clean,3,Speed limit (60km/h),450,0.9644444444444444
+cnn_clean,4,Speed limit (70km/h),660,0.9787878787878788
+cnn_clean,5,Speed limit (80km/h),630,0.9968253968253968
+cnn_clean,6,End of speed limit (80km/h),150,0.9333333333333333
+cnn_clean,7,Speed limit (100km/h),450,0.9911111111111112
+cnn_clean,8,Speed limit (120km/h),450,0.9422222222222222
+cnn_clean,9,No passing,480,0.9979166666666667
+cnn_clean,10,No passing for vehicles over 3.5 metric tons,660,0.996969696969697
+cnn_clean,11,Right-of-way at the next intersection,420,0.9976190476190476
+cnn_clean,12,Priority road,690,0.9739130434782609
+cnn_clean,13,Yield,720,0.9986111111111111
+cnn_clean,14,Stop,270,1.0
+cnn_clean,15,No vehicles,210,1.0
+cnn_clean,16,Vehicles over 3.5 metric tons prohibited,150,1.0
+cnn_clean,17,No entry,360,1.0
+cnn_clean,18,General caution,390,0.941025641025641
+cnn_clean,19,Dangerous curve to the left,60,1.0
+cnn_clean,20,Dangerous curve to the right,90,1.0
+cnn_clean,21,Double curve,90,0.7888888888888889
+cnn_clean,22,Bumpy road,120,0.9916666666666667
+cnn_clean,23,Slippery road,150,1.0
+cnn_clean,24,Road narrows on the right,90,0.9888888888888889
+cnn_clean,25,Road work,480,0.9729166666666667
+cnn_clean,26,Traffic signals,180,1.0
+cnn_clean,27,Pedestrians,60,1.0
+cnn_clean,28,Children crossing,150,1.0
+cnn_clean,29,Bicycles crossing,90,1.0
+cnn_clean,30,Beware of ice/snow,150,0.7733333333333333
+cnn_clean,31,Wild animals crossing,270,0.9962962962962963
+cnn_clean,32,End of all speed and passing limits,60,1.0
+cnn_clean,33,Turn right ahead,210,1.0
+cnn_clean,34,Turn left ahead,120,0.9916666666666667
+cnn_clean,35,Ahead only,390,1.0
+cnn_clean,36,Go straight or right,120,0.9916666666666667
+cnn_clean,37,Go straight or left,60,1.0
+cnn_clean,38,Keep right,690,1.0
+cnn_clean,39,Keep left,90,0.9666666666666667
+cnn_clean,40,Roundabout mandatory,90,0.9555555555555556
+cnn_clean,41,End of no passing,60,0.9666666666666667
+cnn_clean,42,End of no passing by vehicles over 3.5 metric tons,90,1.0
+cnn_augmented,0,Speed limit (20km/h),60,1.0
+cnn_augmented,1,Speed limit (30km/h),720,0.9888888888888889
+cnn_augmented,2,Speed limit (50km/h),750,0.9853333333333333
+cnn_augmented,3,Speed limit (60km/h),450,0.9711111111111111
+cnn_augmented,4,Speed limit (70km/h),660,0.9848484848484849
+cnn_augmented,5,Speed limit (80km/h),630,0.9698412698412698
+cnn_augmented,6,End of speed limit (80km/h),150,0.8866666666666667
+cnn_augmented,7,Speed limit (100km/h),450,0.9244444444444444
+cnn_augmented,8,Speed limit (120km/h),450,0.9933333333333333
+cnn_augmented,9,No passing,480,1.0
+cnn_augmented,10,No passing for vehicles over 3.5 metric tons,660,0.9954545454545455
+cnn_augmented,11,Right-of-way at the next intersection,420,0.9428571428571428
+cnn_augmented,12,Priority road,690,0.9840579710144928
+cnn_augmented,13,Yield,720,0.9986111111111111
+cnn_augmented,14,Stop,270,1.0
+cnn_augmented,15,No vehicles,210,1.0
+cnn_augmented,16,Vehicles over 3.5 metric tons prohibited,150,1.0
+cnn_augmented,17,No entry,360,0.9861111111111112
+cnn_augmented,18,General caution,390,0.9230769230769231
+cnn_augmented,19,Dangerous curve to the left,60,0.9666666666666667
+cnn_augmented,20,Dangerous curve to the right,90,1.0
+cnn_augmented,21,Double curve,90,0.6555555555555556
+cnn_augmented,22,Bumpy road,120,0.9916666666666667
+cnn_augmented,23,Slippery road,150,0.9333333333333333
+cnn_augmented,24,Road narrows on the right,90,0.9888888888888889
+cnn_augmented,25,Road work,480,0.95625
+cnn_augmented,26,Traffic signals,180,0.9777777777777777
+cnn_augmented,27,Pedestrians,60,0.5166666666666667
+cnn_augmented,28,Children crossing,150,1.0
+cnn_augmented,29,Bicycles crossing,90,1.0
+cnn_augmented,30,Beware of ice/snow,150,0.9533333333333334
+cnn_augmented,31,Wild animals crossing,270,0.9962962962962963
+cnn_augmented,32,End of all speed and passing limits,60,1.0
+cnn_augmented,33,Turn right ahead,210,0.9904761904761905
+cnn_augmented,34,Turn left ahead,120,0.9916666666666667
+cnn_augmented,35,Ahead only,390,0.9948717948717949
+cnn_augmented,36,Go straight or right,120,0.9833333333333333
+cnn_augmented,37,Go straight or left,60,0.9666666666666667
+cnn_augmented,38,Keep right,690,0.9971014492753624
+cnn_augmented,39,Keep left,90,0.9777777777777777
+cnn_augmented,40,Roundabout mandatory,90,0.9777777777777777
+cnn_augmented,41,End of no passing,60,0.7666666666666667
+cnn_augmented,42,End of no passing by vehicles over 3.5 metric tons,90,0.8666666666666667

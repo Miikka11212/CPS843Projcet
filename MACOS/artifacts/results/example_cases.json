@@ -1,0 +1,44 @@
+[
+  {
+    "corruption": "blur",
+    "test_index": 1,
+    "true_class": 1,
+    "clean_cnn": 2,
+    "augmented_cnn": 1
+  },
+  {
+    "corruption": "blur",
+    "test_index": 33,
+    "true_class": 23,
+    "clean_cnn": 19,
+    "augmented_cnn": 24
+  },
+  {
+    "corruption": "darkness",
+    "test_index": 12,
+    "true_class": 23,
+    "clean_cnn": 12,
+    "augmented_cnn": 23
+  },
+  {
+    "corruption": "darkness",
+    "test_index": 13,
+    "true_class": 7,
+    "clean_cnn": 5,
+    "augmented_cnn": 8
+  },
+  {
+    "corruption": "noise",
+    "test_index": 22,
+    "true_class": 9,
+    "clean_cnn": 2,
+    "augmented_cnn": 9
+  },
+  {
+    "corruption": "noise",
+    "test_index": 12,
+    "true_class": 23,
+    "clean_cnn": 2,
+    "augmented_cnn": 4
+  }
+]

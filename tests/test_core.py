@@ -10,7 +10,7 @@ class CoreTests(unittest.TestCase):
 
     def test_csv_paths_are_portable_and_cannot_escape_root(self):
         from traffic import resolve_image
-        root = Path(tempfile.gettempdir()) / 'signs'
+        root = Path(tempfile.gettempdir()).resolve() / 'signs'
         self.assertEqual(resolve_image(root, '/code/Train/20/a.png'), root / 'Train/20/a.png')
         self.assertEqual(resolve_image(root, r'Test\00000.png'), root / 'Test/00000.png')
         with self.assertRaises(ValueError):

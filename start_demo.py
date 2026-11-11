@@ -39,7 +39,8 @@ def main():
         with (HERE / 'demo.log').open('a', encoding='utf-8') as log:
             process = subprocess.Popen([sys.executable, str(HERE / 'app.py')], cwd=HERE,
                                        stdin=subprocess.DEVNULL, stdout=log, stderr=log,
-                                       creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+                                       creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
+                                       start_new_session=os.name != 'nt')
         for _ in range(120):
             if running():
                 break
@@ -50,7 +51,8 @@ def main():
             process.terminate()
             raise SystemExit('Server did not become ready. Check trained models and demo.log.')
     webbrowser.open(URL)
-    print(f'SignLab is running at {URL}. Double-click stop_demo.bat to stop it.')
+    stop = 'Double-click stop_demo.bat' if os.name == 'nt' else 'Run ./launch.command --stop from this folder'
+    print(f'SignLab is running at {URL}. {stop} to stop it.')
 
 
 if __name__ == '__main__':

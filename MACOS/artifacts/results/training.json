@@ -1,0 +1,24 @@
+{
+  "hog_svm": {
+    "training_seconds": 145.34485199999926,
+    "validation_accuracy": 0.8122365563928982,
+    "best_validation_macro_f1": 0.7777590113683381,
+    "features": 324,
+    "C": 1.0,
+    "converged": true
+  },
+  "cnn_clean": {
+    "training_seconds": 243.2497902999994,
+    "parameters": 823499,
+    "best_validation_macro_f1": 0.985747195270691,
+    "epochs": 24,
+    "best_epoch": 21
+  },
+  "cnn_augmented": {
+    "training_seconds": 262.1764438,
+    "parameters": 823499,
+    "best_validation_macro_f1": 0.9810078534767253,
+    "epochs": 24,
+    "best_epoch": 19
+  }
+}
