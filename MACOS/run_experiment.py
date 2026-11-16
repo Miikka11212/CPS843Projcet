@@ -24,17 +24,13 @@ from traffic import (CLASSES, CORRUPTIONS, SEED, SIZE, SignCNN, corrupt_batch,
                      read_rows, read_sign_names, save_json, score_predictions,
                      split_tracks, track_id)
 
+HERE = Path(__file__).resolve().parent
+
 
 def augment(images):
     """Randomly apply one of clean, blur, darkness, or noise, on the GPU."""
     images = images.clone()
     choices = torch.randint(4, (len(images),), device=images.device)
-    dark = choices == 2
-    images[dark] *= .2 + .7 * torch.rand((int(dark.sum()), 1, 1, 1), device=images.device)
-    noisy = choices == 3
-    noise_images = images[noisy]
-    sigmas = .02 + .12 * torch.rand((len(noise_images), 1, 1, 1), device=images.device)
-    images[noisy] = noise_images + torch.randn_like(noise_images) * sigmas
     blurred = choices == 1
     if blurred.any():
         sigma = float(torch.empty(1).uniform_(.4, 1.8))
@@ -45,6 +41,15 @@ def augment(images):
         vertical = kernel.reshape(1, 1, 13, 1).expand(3, 1, 13, 1)
         selected = F.pad(images[blurred], (6, 6, 6, 6), mode='replicate')
         images[blurred] = F.conv2d(F.conv2d(selected, horizontal, groups=3), vertical, groups=3)
+
+    dark = choices == 2
+    images[dark] *= .2 + .7 * torch.rand((int(dark.sum()), 1, 1, 1), device=images.device)
+    
+    noisy = choices == 3
+    noise_images = images[noisy]
+    sigmas = .02 + .12 * torch.rand((len(noise_images), 1, 1, 1), device=images.device)
+    images[noisy] = noise_images + torch.randn_like(noise_images) * sigmas
+    
     return images.clamp_(0, 1)
 
 
@@ -54,10 +59,13 @@ def train_cnn(images, labels, train_ids, val_ids, augmented, args, destination):
     torch.manual_seed(SEED)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(SEED)
+
     model = SignCNN().to(args.device)
+
     optimizer = torch.optim.AdamW(model.parameters(), lr=.001, weight_decay=.0001)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs, eta_min=.00001)
     loss_function = nn.CrossEntropyLoss()
+
     # Keep the resized training images on the selected device for batching.
     train_images = image_tensor(images[train_ids], args.device)
     train_labels = torch.as_tensor(labels[train_ids], device=args.device)
@@ -65,11 +73,13 @@ def train_cnn(images, labels, train_ids, val_ids, augmented, args, destination):
     history = []
     start_time = time.perf_counter()
     name = 'cnn_augmented' if augmented else 'cnn_clean'
+
     for epoch in range(1, args.epochs + 1):
         epoch_start = time.perf_counter()
         model.train()
         permutation = torch.randperm(len(train_ids), device=args.device)
         total_loss, correct = 0., 0
+
         for start in range(0, len(permutation), args.batch_size):
             indices = permutation[start:start + args.batch_size]
             inputs, targets = train_images[indices], train_labels[indices]
@@ -123,8 +133,8 @@ def check_compatibility(previous, current):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data', type=Path, default=Path('data'))
-    parser.add_argument('--output', type=Path, default=Path('artifacts'))
+    parser.add_argument('--data', type=Path, default=HERE / 'data')
+    parser.add_argument('--output', type=Path, default=HERE / 'artifacts-local')
     parser.add_argument('--epochs', type=int, default=24)
     parser.add_argument('--batch-size', type=int, default=256)
     parser.add_argument('--device', default='cuda' if torch.cuda.is_available() else 'cpu')
@@ -132,6 +142,12 @@ def main():
     args = parser.parse_args()
     if args.epochs < 1 or args.batch_size < 1:
         parser.error('epochs and batch-size must be positive')
+    dataset_files = ('Train.csv', 'Test.csv', 'signnames.csv')
+    missing = [name for name in dataset_files if not (args.data / name).is_file()]
+    missing += [name for name in ('Train/', 'Test/') if not (args.data / name).is_dir()]
+    if missing:
+        parser.error(f'GTSRB dataset incomplete at {args.data.resolve()}. Missing: {", ".join(missing)}. '
+                     'Place the dataset in the project data folder or use --data /path/to/gtsrb.')
     torch.set_num_threads(4)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
@@ -144,8 +160,8 @@ def main():
         'platform': platform.platform(), 'dataset_root': str(args.data.resolve()),
         'gpu': torch.cuda.get_device_name(0) if args.device.startswith('cuda') else None,
         'source_hashes': {name: hashlib.sha256((args.data / name).read_bytes()).hexdigest()
-                          for name in ['Train.csv', 'Test.csv', 'signnames.csv']},
-        'code_hashes': {name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
+                          for name in dataset_files},
+        'code_hashes': {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
                         for name in ['traffic.py', 'run_experiment.py']},
         'libraries': {name: importlib.metadata.version(name) for name in
                       ['numpy', 'scikit-learn', 'scikit-image', 'Pillow', 'torch']},
@@ -163,7 +179,7 @@ def main():
         snapshot = args.output / 'results' / 'training-source'
         snapshot.mkdir(parents=True, exist_ok=True)
         for name in metadata['code_hashes']:
-            shutil.copy2(name, snapshot / name)
+            shutil.copy2(HERE / name, snapshot / name)
     print('Loading dataset...', flush=True)
     train_rows, test_rows = read_rows(args.data, 'Train'), read_rows(args.data, 'Test')
     names = read_sign_names(args.data)
@@ -195,6 +211,7 @@ def main():
     model_metadata_path = args.output / 'results' / 'training.json'
     if model_metadata_path.exists() and not args.force:
         model_info = json.loads(model_metadata_path.read_text())
+
     if args.force or not svm_path.exists():
         start = time.perf_counter()
         print('Extracting HOG features and fitting linear SVM...', flush=True)
@@ -209,6 +226,7 @@ def main():
                                   'features': features.shape[1], 'C': 1.0,
                                   'converged': int(np.max(svm[-1].n_iter_)) < 10000}
         save_json(model_metadata_path, model_info)
+        
     for name, augmented in [('cnn_clean', False), ('cnn_augmented', True)]:
         destination = args.output / 'models' / f'{name}.pt'
         if args.force or not destination.exists() or name not in model_info:

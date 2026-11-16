@@ -21,10 +21,12 @@ After running the launcher to set up Python, run the audit and tests from this f
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-To train a separate run on this Mac, provide the full GTSRB dataset containing `Train.csv`, `Test.csv`, `signnames.csv`, `Train/`, and `Test/`. Use `artifacts-local` to keep the new run separate from the results and models shipped with the demo.
+To train on this Mac, place the full GTSRB dataset in this project's `data/` folder or pass a different folder with `--data`. The dataset folder must contain `Train.csv`, `Test.csv`, `signnames.csv`, `Train/`, and `Test/`. New training runs write to `artifacts-local/` by default.
+
+The local dataset comes from the [GTSRB Kaggle archive](https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign). Its `signnames.csv` was generated from the class labels in `artifacts/labels.json`.
 
 ```sh
-.venv/bin/python -u run_experiment.py --data /path/to/gtsrb --device cpu --epochs 24 --output artifacts-local
+.venv/bin/python -u run_experiment.py
 .venv/bin/python make_figures.py --artifacts artifacts-local
 ```
 

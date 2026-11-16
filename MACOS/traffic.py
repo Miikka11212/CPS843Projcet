@@ -129,13 +129,17 @@ class SignCNN(nn.Module):
             layers.extend([nn.Conv2d(channels, width, 3, padding=1), 
                            nn.BatchNorm2d(width),
                            nn.ReLU(), 
+
                            nn.Conv2d(width, width, 3, padding=1),
                            nn.BatchNorm2d(width), 
                            nn.ReLU(), nn.MaxPool2d(2)])
             channels = width
         self.features = nn.Sequential(*layers)
-        self.classifier = nn.Sequential(nn.Flatten(), nn.Linear(128 * 4 * 4, 256),
-                                        nn.ReLU(), nn.Dropout(.3), nn.Linear(256, CLASSES))
+        self.classifier = nn.Sequential(nn.Flatten(), 
+                                        nn.Linear(128 * 4 * 4, 256),
+                                        nn.ReLU(), 
+                                        nn.Dropout(.3), 
+                                        nn.Linear(256, CLASSES))
 
     def forward(self, images):
         return self.classifier(self.features(images))
